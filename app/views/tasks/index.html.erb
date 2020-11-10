@@ -1,11 +1,14 @@
-<div class=container>
-  <h1>My Tasks</h1>
+<h1>My tasks</h1>
+<% @tasks.each do |task| %>
+  <%= link_to task.title, task_path(task) %>
+  <br>
+  <small>Completed:<%= form_for(task) { |f| f.check_box :completed } %></small>
+  <%= link_to "Delete '#{task.title}'",
+              task_path(task),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+  <br>
+  <br>
+<% end %>
 
-  <form action="/action_page.php">
-    <div>
-
-    </div>
-  </form>
-
-
-</div>
+<%= link_to "Create new task", "/tasks/new" %>

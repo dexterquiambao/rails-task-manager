@@ -1,0 +1,10 @@
+
+<h2><%= @task.title %></h2>
+<p><%= @task.details %></p>
+<p><%= @task.completed %></p>
+<%= link_to "Update Task", "/tasks/#{@task.id}/edit" %>
+<%= link_to tasks_path do %>
+    <br>
+    <i></i> Back to list
+  <% end %>
+<br>
